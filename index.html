@@ -6,12 +6,15 @@
     <title>Age Verification - SleepStream.live</title>
     <style>
         /* CSS Styles */
-
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         /* Modal Styles */
@@ -24,16 +27,53 @@
             width: 100%; /* Full width */
             height: 100%; /* Full height */
             overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
             background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .modal-content {
             background-color: #fefefe;
-            margin: 15% auto; /* 15% from the top and centered */
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; /* Could be more or less, depending on screen size */
+            width: 300px;
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Buttons */
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #yesButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #noButton {
+            background-color: #f44336;
+            color: white;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            .modal-content {
+                width: 80%;
+                height: auto;
+                padding: 30px;
+            }
         }
 
         /* Hide main content initially */
@@ -66,7 +106,7 @@
             const mainContent = document.getElementById('mainContent');
 
             // Show modal on page load
-            modal.style.display = 'block';
+            modal.style.display = 'flex';
 
             // Handle "Yes" button click
             document.getElementById('yesButton').addEventListener('click', () => {
