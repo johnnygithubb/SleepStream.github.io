@@ -1,18 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Your Streaming Page</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Verification - SleepStream.live</title>
+    <style>
+        /* CSS Styles */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* Hide main content initially */
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div id="passwordSection">
-        <input type="password" id="passwordInput" placeholder="Enter Password">
-        <button onclick="verifyPassword()">Submit</button>
+    <!-- Age Verification Modal -->
+    <div id="ageVerificationModal" class="modal">
+        <div class="modal-content">
+            <h2>Age Verification</h2>
+            <p>Are you over 18 years old?</p>
+            <button id="yesButton">Yes</button>
+            <button id="noButton">No</button>
+        </div>
     </div>
-    <div id="streamSection" style="display:none;">
-        <!-- Replace this with your actual livestream embed code -->
-        <iframe src="your_livestream_embed_link" width="560" height="315"></iframe>
+
+    <!-- Main Content (hidden initially) -->
+    <div id="mainContent" class="hidden">
+        <!-- Your main content goes here -->
     </div>
+
+    <script>
+        // JavaScript Code
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('ageVerificationModal');
+            const mainContent = document.getElementById('mainContent');
+
+            // Show modal on page load
+            modal.style.display = 'block';
+
+            // Handle "Yes" button click
+            document.getElementById('yesButton').addEventListener('click', () => {
+                modal.style.display = 'none';
+                mainContent.style.display = 'block';
+            });
+
+            // Handle "No" button click
+            document.getElementById('noButton').addEventListener('click', () => {
+                modal.style.display = 'none';
+                alert('Sorry, you must be 18 or older to access this site.');
+            });
+        });
+    </script>
 </body>
 </html>
