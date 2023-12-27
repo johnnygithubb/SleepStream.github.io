@@ -101,25 +101,24 @@
     <script>
         // JavaScript Code
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('ageVerificationModal');
-            const mainContent = document.getElementById('mainContent');
+       document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('ageVerificationModal');
 
-            // Show modal on page load
-            modal.style.display = 'flex';
+    // Show modal on page load
+    modal.style.display = 'flex';
 
-            // Handle "Yes" button click
-            document.getElementById('yesButton').addEventListener('click', () => {
-                modal.style.display = 'none';
-                mainContent.style.display = 'block';
-            });
+    // Handle "Yes" button click
+    document.getElementById('yesButton').addEventListener('click', () => {
+        window.location.href = 'password.html'; // Redirect to password.html
+    });
 
-            // Handle "No" button click
-            document.getElementById('noButton').addEventListener('click', () => {
-                modal.style.display = 'none';
-                alert('Sorry, you must be 18 or older to access this site.');
-            });
-        });
+    // Handle "No" button click
+    document.getElementById('noButton').addEventListener('click', () => {
+        modal.style.display = 'none';
+        alert('Sorry, you must be 18 or older to access this site.');
+    });
+});
+
     </script>
 </body>
 </html>
