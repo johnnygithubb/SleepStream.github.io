@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johnny Fit Members Club - SleepStream.live</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+        .stream-container {
+            width: 100%;
+            max-width: 800px;
+        }
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+        .upgrade-message {
+            color: #f44336;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #f44336;
+            border-radius: 5px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .upgrade-link {
+            color: #0056b3;
+            text-decoration: underline;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        .countdown-container {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+            font-weight: bold;
+        }
+        .countdown-label {
+            color: #555;
+            margin-right: 10px;
+        }
+        @media (max-width: 600px) {
+            .stream-container {
+                width: 90%;
+            }
+            iframe {
+                height: auto;
+                aspect-ratio: 16 / 9;
+            }
+            .countdown-container {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stream-container">
+        <h1>Johnny Fit Members Club</h1>
+        <!-- Embed your stream below -->
+        <iframe src="your-embed-url" frameborder="0" allowfullscreen></iframe>
+
+        <!-- Upgrade membership message -->
+        <div class="upgrade-message">
+            Upgrade on the Patreon to Gain Daily Password access for SleepStream Live and 150+ Videos, Pictures PLUS Archived sleepstream in case you missed the live
+            <a href="https://www.patreon.com/Johnny_fit" class="upgrade-link">Join Now</a>
+        </div>
+
+        <!-- Countdown timer -->
+        <div class="countdown-container">
+            <span class="countdown-label">Promotion over in:</span>
+            <div id="countdown">08:00:00</div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize and start the countdown timer
+        function startCountdown(duration, display) {
+            var timer = duration, hours, minutes, seconds;
+
+            var countdownFunction = function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = hours + ":" + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration; // Reset the timer after it reaches 0
+                }
+            };
+
+            // Start the countdown
+            countdownFunction();
+            setInterval(countdownFunction, 1000);
+        }
+
+        window.onload = function () {
+            var eightHoursInSeconds = 60 * 60 * 8; // 8 hours in seconds
+            var display = document.querySelector('#countdown');
+            startCountdown(eightHoursInSeconds, display);
+        };
+    </script>
+</body>
+</html>
